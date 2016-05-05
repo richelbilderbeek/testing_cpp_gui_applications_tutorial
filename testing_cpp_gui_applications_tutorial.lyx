@@ -95,15 +95,368 @@ Introduction
 
 \begin_layout Standard
 This is `Testing C++ GUI applications', version 0.1, a tutorial about testing
- C++ GUI applictions
-\end_layout
-
-\begin_layout Section
-Secret code
+ C++ GUI applications.
 \end_layout
 
 \begin_layout Standard
-In this application, 
+For now, I only consider Qt applications under GNU/Linux, as I use 'xdotool'
+ to manipulate windows.
+\end_layout
+
+\begin_layout Standard
+Goal is to reliably test Qt GUI applications.
+\end_layout
+
+\begin_layout Section
+Setting up a minimal project
+\end_layout
+
+\begin_layout Standard
+Setting up a minimal project consists out of these steps:
+\end_layout
+
+\begin_layout Itemize
+Create a minimal Qt application
+\end_layout
+
+\begin_layout Itemize
+Write a test script
+\end_layout
+
+\begin_layout Subsection
+Creating a minimal Qt application
+\end_layout
+
+\begin_layout Standard
+Create a new Qt Creator project, by clicking from the Qt Creator menu 'File
+ | New File or Project'.
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename images/minimal_project_1.png
+	lyxscale 50
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Create a new project
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In the 'New' dialog, select 'Qt Widgets Application' and click 'Choose'.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename images/minimal_project_2.png
+	lyxscale 50
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Create a new Qt Widgets application
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In the 'Qt Widgets Application' dialog, pick a suitable location to put
+ the files of your project.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename images/minimal_project_3.png
+	lyxscale 50
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Give your new application a suitable location
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In the next 'Qt Widgets Application' dialog, just use the default kits by
+ clicking 'Next'.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename images/minimal_project_4.png
+	lyxscale 50
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Use the default kits
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In the next 'Qt Widgets Application' dialog, use 'QDialog' as the base class.
+ Use all default names by clicking 'Next'.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename images/minimal_project_5.png
+	lyxscale 50
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Set the base class of your application's main window to QDialog
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In the next 'Qt Widgets Application' dialog, skip this way of using git
+ to do version control by clicking 'Finish'.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename images/minimal_project_6.png
+	lyxscale 50
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Skip using git via Qt Creator
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now, your minimal project is created.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename images/minimal_project_7.png
+	lyxscale 50
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Part of the code of your first minimal project
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now run the application, by either pressing CTRL+R, selecting 'Build | Run'
+ from the Qt Creator menu, or click the green arrow on the left.
+ 
+\end_layout
+
+\begin_layout Standard
+The minimal application is an empty dialog.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename images/minimal_project_8.png
+	lyxscale 50
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+The minimal application
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+ergerghtrh
+\end_layout
+
+\begin_layout Standard
+ergerghtrh
 \end_layout
 
 \begin_layout Standard
