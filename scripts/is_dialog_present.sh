@@ -1,9 +1,12 @@
 #!/bin/bash
 
-id=`wmctrl -l | egrep "$@" | cut -f 1 -d ' '`
-if [ $id ] 
-then
-  echo "yes, ID is "$id
-else
-  echo "no"
-fi
+function is_dialog_present
+{
+  id=`wmctrl -l | egrep "$@" | cut -f 1 -d ' '`
+  if [ $id ] 
+  then
+    echo 1
+  else
+    echo 0
+  fi
+}
