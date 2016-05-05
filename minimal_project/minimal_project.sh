@@ -38,12 +38,27 @@ if [ $id ]
 then 
   echo "OK: detected window with id "$id
 else
-  echo "Error: should detect empty leafpad window"
+  echo "Error: should detect window with name"$dialog_name
   exit 1
 fi
 
-# Obtaining the location of the cross
+# Close the dialog using ALT-F4
+. ../scripts/close_dialog_with_name.sh
+error=`close_dialog_with_name $dialog_name`
+if [ ! $error -eq 0 ]
+then 
+  echo "Error: could not close dialog with name "$dialog_name
+  exit 1
+fi
+
+echo "Starting the application again"
+$myexe &
+sleep 1
+
+# Obtaining the window geometry
 echo `xdotool getwindowgeometry $id`
+
+
 exit 0
 
 x=`xdotool getwindowgeometry $(wmctrl -l | egrep "Dialog" | cut -f 1 -d ' ') | egrep "Position" | cut -d ':' -f 2 | cut -d '(' -f 1 | cut -d ',' -f 1`
@@ -63,12 +78,6 @@ echo "where to click, y coordinat: "$mouse_y
 echo "Closing the dialog using a mouse click"
 xdotool windowactivate $(wmctrl -l | egrep "Dialog" | cut -f 1 -d ' ') sleep 0.1 mousemove $mouse_x $mouse_y click 1
 
-echo "Starting the application"
-$myexe &
-sleep 1
-
-echo "Closing the dialog using Alt-F4"
-xdotool windowactivate $(wmctrl -l | egrep "Dialog" | cut -f 1 -d ' ') sleep 0.1 key alt+F4
 
 
 
