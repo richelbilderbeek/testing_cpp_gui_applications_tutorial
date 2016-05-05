@@ -1,16 +1,40 @@
 #!/bin/bash
+dialog_name="Dialog"
 
-myexe="../build-minimal_project-Desktop-Debug/minimal_project"
-if [ -e /$myexe ]
+# Check if wmctrl is installed
+. ../scripts/is_wmctrl_present.sh
+if [ $(is_wmctrl_present) -eq 0 ]
 then
-  echo "Executable '"$myexe"' not found"
-  exit
+  echo "ERROR: wmctrl not installed, type 'sudo apt-get install wmctrl' to install it"
+  exit 1
 fi
 
+# Check if executable is present
+myexe="../build-minimal_project-Desktop-Debug/minimal_project"
+if [ ! -e $myexe ]
+then
+  echo "Executable '"$myexe"' not found"
+  exit 1
+fi
+
+# Start the testing
 echo "Starting the application"
 $myexe &
 sleep 1
 
+
+# Test if the dialog is found
+. ../scripts/get_dialog_id.sh
+id=`get_dialog_id $dialog_name`
+if [ $id ] 
+then 
+  echo "OK: detected window with id "$id
+else
+  echo "Error: should detect empty leafpad window"
+  exit 1
+fi
+
+exit 0
 
 # Obtaining the location of the cross
 x=`xdotool getwindowgeometry $(wmctrl -l | egrep "Dialog" | cut -f 1 -d ' ') | egrep "Position" | cut -d ':' -f 2 | cut -d '(' -f 1 | cut -d ',' -f 1`
