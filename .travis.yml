@@ -1,11 +1,19 @@
-sudo: true
+sudo: require
 language: cpp
 compiler: gcc
 
 install:
   - sudo apt-get install -qq xdotool
   - sudo apt-get install -qq wmctrl
+  - sudo apt-get install -qq leafpad
+
+# Start virtual X server, from https://docs.travis-ci.com/user/gui-and-headless-browsers/
+before_script:
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  - sleep 3 # give xvfb some time to start
 
 script:
   - ./scripts/is_xdotool_present_test.sh
   - ./scripts/is_wmctrl_present_test.sh
+  - ./scripts/close_dialog_with_name_test.sh
