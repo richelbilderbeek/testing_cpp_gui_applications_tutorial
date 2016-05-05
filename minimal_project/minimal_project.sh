@@ -1,5 +1,15 @@
 #!/bin/bash
+myexe="../build-minimal_project-Desktop-Debug/minimal_project"
 dialog_name="Dialog"
+
+# Check if xdotool is installed
+. ../scripts/is_xdotool_present.sh
+if [ $(is_xdotool_present) -eq 0 ]
+then
+  echo "ERROR: xdotool not installed, type 'sudo apt-get install xdotool' to install it"
+  exit 1
+fi
+
 
 # Check if wmctrl is installed
 . ../scripts/is_wmctrl_present.sh
@@ -10,7 +20,6 @@ then
 fi
 
 # Check if executable is present
-myexe="../build-minimal_project-Desktop-Debug/minimal_project"
 if [ ! -e $myexe ]
 then
   echo "Executable '"$myexe"' not found"
@@ -24,9 +33,6 @@ sleep 1
 
 # Test if the dialog is found
 . ../scripts/get_dialog_id.sh
-
-
-. ../scripts/get_dialog_id.sh
 id=`get_dialog_id $dialog_name`
 if [ $id ] 
 then 
@@ -36,9 +42,10 @@ else
   exit 1
 fi
 
+# Obtaining the location of the cross
+echo `xdotool getwindowgeometry $id`
 exit 0
 
-# Obtaining the location of the cross
 x=`xdotool getwindowgeometry $(wmctrl -l | egrep "Dialog" | cut -f 1 -d ' ') | egrep "Position" | cut -d ':' -f 2 | cut -d '(' -f 1 | cut -d ',' -f 1`
 y=`xdotool getwindowgeometry $(wmctrl -l | egrep "Dialog" | cut -f 1 -d ' ') | egrep "Position" | cut -d ':' -f 2 | cut -d '(' -f 1 | cut -d ',' -f 2`
 w=`xdotool getwindowgeometry $(wmctrl -l | egrep "Dialog" | cut -f 1 -d ' ') | egrep "Geometry" | cut -d ':' -f 2 | cut -d 'x' -f 1`

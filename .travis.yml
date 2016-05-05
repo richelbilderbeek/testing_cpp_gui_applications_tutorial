@@ -1,0 +1,11 @@
+sudo: true
+language: cpp
+compiler: gcc
+
+install:
+  - sudo apt-get install -qq xdotool
+  - sudo apt-get install -qq wmctrl
+
+script:
+  - ./scripts/is_xdotool_present_test.sh
+  - ./scripts/is_wmctrl_present_test.sh
