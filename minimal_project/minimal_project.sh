@@ -22,8 +22,10 @@ echo "Starting the application"
 $myexe &
 sleep 1
 
-
 # Test if the dialog is found
+. ../scripts/get_dialog_id.sh
+
+
 . ../scripts/get_dialog_id.sh
 id=`get_dialog_id $dialog_name`
 if [ $id ] 
