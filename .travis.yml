@@ -14,6 +14,7 @@ before_script:
   - sleep 3 # give xvfb some time to start
 
 script:
-  - ./scripts/is_xdotool_present_test.sh
-  - ./scripts/is_wmctrl_present_test.sh
-  - ./scripts/close_dialog_with_name_test.sh
+  - cd scripts
+  - ./is_xdotool_present_test.sh
+  - ./is_wmctrl_present_test.sh
+  - ./close_dialog_with_name_test.sh
