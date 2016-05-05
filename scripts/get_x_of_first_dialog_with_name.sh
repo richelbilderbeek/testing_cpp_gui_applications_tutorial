@@ -1,12 +1,12 @@
 #!/bin/bash
 
-# Get the x of the *first* window with the arguments
+# Get the x of the first window with the arguments
 # as its window title
 # Shows nothing if the window cannot be found
 
 . ../scripts/get_dialog_id.sh
 
-function get_x_of_dialog_with_name
+function get_x_of_first_dialog_with_name
 {
   id=`get_dialog_id "$@"`
   if [ $id ] 
