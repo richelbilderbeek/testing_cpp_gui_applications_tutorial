@@ -5,5 +5,4 @@ Tutorial about testing C++ GUI applications.
 Tools and libraries used:
 
   * `Qt`: a C++ graphical library
-  * `SFML`: a C++ graphical library
-  * `xdotool`: tool to manipulate windows
+  * `xdotool`: GNU/Linux tool to manipulate windows
