@@ -528,7 +528,7 @@ lstparams "breaklines=true,fontadjust=true,language={bash}"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-minimal.sh
+minimal_project.sh
 \end_layout
 
 \end_inset
@@ -549,6 +549,119 @@ It opens the application, closes it by using ALT-F4, re-starts the application,
 \begin_layout Standard
 Note that this scripts is stripped down to fit on one page.
  
+\end_layout
+
+\begin_layout Section
+Enter secret code
+\end_layout
+
+\begin_layout Standard
+In this project, we create an application in which a secret code must be
+ entered
+\end_layout
+
+\begin_layout Itemize
+Creating the application
+\end_layout
+
+\begin_layout Itemize
+Testing the application application
+\end_layout
+
+\begin_layout Subsection
+Creating the application
+\end_layout
+
+\begin_layout Standard
+Here it is:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename images/enter_secret_code_1.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+The application
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:enter_secret_code"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Testing the application
+\end_layout
+
+\begin_layout Standard
+Here code:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "enter_secret_code/enter_secret_code.sh"
+lstparams "breaklines=true,language={bash}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+enter_secret_code.sh
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Again this is a stripped-down version
 \end_layout
 
 \begin_layout Section
