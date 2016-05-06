@@ -21,4 +21,7 @@ script:
   - cd minimal_project; qmake; make; ./minimal_project.sh; cd ..
   - leafpad &
   - gedit &
-  - wmctrl -l
+  - DISPLAY=:0; wmctrl -l
+  - DISPLAY=:1; wmctrl -l
+  - DISPLAY=:2; wmctrl -l
+  - DISPLAY=:3; wmctrl -l
