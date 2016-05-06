@@ -7,7 +7,7 @@
 \usepackage[hidelinks,
   bookmarksnumbered=true,
   unicode=true,
-  pdftitle={A well-connected C++11 Boost.Graph tutorial},
+  pdftitle={Testing C++ GUI applications},
   pdfauthor={Richèl Bilderbeek}
   ]{hyperref}
 \usepackage{tikz}
@@ -513,7 +513,7 @@ status open
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
 filename "minimal_project/minimal_project.sh"
-lstparams "breaklines=true,language={bash}"
+lstparams "breaklines=true,fontadjust=true,language={bash}"
 
 \end_inset
 
@@ -542,6 +542,11 @@ It opens the application, closes it by using ALT-F4, re-starts the application,
  then closes it by using the mouse.
 \end_layout
 
+\begin_layout Standard
+Note that this scripts is stripped down to fit on one page.
+ 
+\end_layout
+
 \begin_layout Section
 \start_of_appendix
 Appendix
@@ -562,6 +567,10 @@ name "sub:xdotool-tutorial"
 This is a step-by-step minimal xdotool tutorial.
 \end_layout
 
+\begin_layout Paragraph
+Starting the minimal Qt application
+\end_layout
+
 \begin_layout Standard
 Start the minimal Qt application in chapter 
 \begin_inset CommandInset ref
@@ -579,6 +588,31 @@ reference "fig:minimal-application"
 \end_inset
 
 ) with window name 'Dialog'.
+ To start this application from the command line:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+./minimal_example &
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note the ampersand ('&') after the execution call of 'minimal_example'.
+ It will launch the example on a new thread.
+\end_layout
+
+\begin_layout Paragraph
+xdotool cannot detect a Qt application window from its title
 \end_layout
 
 \begin_layout Standard
@@ -604,7 +638,15 @@ xdotool search --name "Dialog"
 \begin_layout Standard
 Too bad, this does not return any hit.
  We will need a detour to be able to find our window.
- The program 'wmctrl' can give us all windows:
+ 
+\end_layout
+
+\begin_layout Paragraph
+wmctrl can find all window title
+\end_layout
+
+\begin_layout Standard
+The program 'wmctrl' can give us all windows:
 \end_layout
 
 \begin_layout Standard
@@ -662,10 +704,19 @@ wmctrl finds a window with Dialog as its title
 \end_layout
 
 \begin_layout Standard
-xdotool can work from a window ID, which is the first number wmctrl shows.
- In this case the number is '0x09c00006', which is a hexadecimal number.
- To extract the window ID, we will select the line from wmctrl that contains
- the text 'Dialog':
+xdotool can work from a window ID, which is the first number wmctrl shows
+ (in this case the number is '0x09c00006' ('0x' denotes the number is hexadecima
+l)).
+ Next step is to extract the window ID from this output.
+\end_layout
+
+\begin_layout Paragraph
+Extract the window ID from wmctrl its output
+\end_layout
+
+\begin_layout Standard
+To extract the window ID from wmctrl its output, we will select the line
+ from wmctrl that contains the text 'Dialog' using egrep:
 \end_layout
 
 \begin_layout Standard
@@ -744,6 +795,10 @@ status open
 
 \end_layout
 
+\begin_layout Paragraph
+Use the extracted window ID to activate a window with xdotool
+\end_layout
+
 \begin_layout Standard
 Because xdotool can handle hexadecimal, we can activate our dialog with
  this command:
@@ -766,7 +821,15 @@ xdotool windowactivate $(wmctrl -l | egrep "Dialog" | cut -f 1 -d ' ')
 
 \begin_layout Standard
 From this, we can do all kinds of tests.
- xdotools chains command, so now you can add the more useful commands at
+ 
+\end_layout
+
+\begin_layout Paragraph
+xdotool: close a window by using ALT+F4
+\end_layout
+
+\begin_layout Standard
+xdotools chains command, so now you can add the more useful commands at
  the end of the line.
 \end_layout
 
@@ -794,6 +857,10 @@ xdotool windowactivate $(wmctrl -l | egrep "Dialog" | cut -f 1 -d ' ') sleep
 Note that I added a call to 'sleep', to give the window some time to be
  actviated.
  
+\end_layout
+
+\begin_layout Paragraph
+xdotool: get a window its geometry
 \end_layout
 
 \begin_layout Standard
@@ -844,6 +911,10 @@ Window 48234502
 
 \end_layout
 
+\begin_layout Paragraph
+xdotool: move the mouse cursor to the window close glyph
+\end_layout
+
 \begin_layout Standard
 From that I can conclude where I have to put my mouse cursor to hover above
  the closing cross of the dialog:
@@ -863,6 +934,10 @@ xdotool windowactivate $(wmctrl -l | egrep "Dialog" | cut -f 1 -d ' ') sleep
 \end_inset
 
 
+\end_layout
+
+\begin_layout Paragraph
+xdotool: close a window by clicking on the window close glyph
 \end_layout
 
 \begin_layout Standard

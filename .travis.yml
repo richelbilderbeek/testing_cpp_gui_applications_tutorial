@@ -15,15 +15,14 @@ before_script:
   - sleep 3 # give xvfb some time to start
 
 script:
-  - sleep 3
   - cd scripts; ./is_xdotool_present_test.sh; cd ..
   - cd scripts; ./is_wmctrl_present_test.sh; cd ..
   - cd scripts; ./close_first_dialog_with_name_test.sh; cd ..
-  - cd minimal_project; qmake; make; ./minimal_project.sh; cd ..
+  - cd minimal_project; qmake; make; ./minimal_project_complete.sh; ./minimal_project.sh; cd ..
   - leafpad &
   - gedit &
   - wmctrl -m
   - DISPLAY=:0; wmctrl -l
   - DISPLAY=:1; wmctrl -l
-  - DISPLAY=:2; wmctrl -l
   - DISPLAY=:99; wmctrl -l
+  - DISPLAY=:99.0; wmctrl -l
