@@ -6,6 +6,7 @@ install:
   - sudo apt-get install -qq xdotool
   - sudo apt-get install -qq wmctrl
   - sudo apt-get install -qq leafpad
+  - sudo apt-get install -qq gedit
 
 # Start virtual X server, from https://docs.travis-ci.com/user/gui-and-headless-browsers/
 before_script:
@@ -18,3 +19,6 @@ script:
   - ./is_xdotool_present_test.sh
   - ./is_wmctrl_present_test.sh
   - ./close_dialog_with_name_test.sh
+  - leafpad &
+  - gedit &
+  - wmctrl -l
