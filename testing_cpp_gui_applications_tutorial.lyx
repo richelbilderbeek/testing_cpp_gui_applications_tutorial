@@ -123,6 +123,14 @@ xdotool
 xdotool is a GNU/Linux command-line tool.
 \end_layout
 
+\begin_layout Subsection
+Travis CI
+\end_layout
+
+\begin_layout Standard
+Travis CI is a continuous integration (hence the 'CI') tool.
+\end_layout
+
 \begin_layout Section
 Setting up a minimal project
 \end_layout
@@ -133,10 +141,6 @@ Setting up a minimal project consists out of these steps:
 
 \begin_layout Itemize
 Creating a minimal Qt application
-\end_layout
-
-\begin_layout Itemize
-xdotool first uses
 \end_layout
 
 \begin_layout Itemize
@@ -166,7 +170,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename images/minimal_project_1.png
-	lyxscale 50
+	lyxscale 25
 	width 100text%
 
 \end_inset
@@ -408,7 +412,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename images/minimal_project_7.png
-	lyxscale 50
+	lyxscale 25
 	width 100text%
 
 \end_inset
@@ -549,10 +553,6 @@ Note that this scripts is stripped down to fit on one page.
 
 \begin_layout Section
 \start_of_appendix
-Appendix
-\end_layout
-
-\begin_layout Section
 xdotool minimal tutorial
 \begin_inset CommandInset label
 LatexCommand label
