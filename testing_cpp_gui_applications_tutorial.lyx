@@ -145,6 +145,13 @@ Testing the minimal Qt application
 
 \begin_layout Subsection
 Creating a minimal Qt application
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Creating-a-minimal-qt-application"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -459,6 +466,13 @@ status open
 
 \begin_layout Plain Layout
 The minimal application
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:minimal-application"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -472,10 +486,51 @@ The minimal application
 \end_layout
 
 \begin_layout Subsection
-xdotool first uses
-\begin_inset CommandInset label
-LatexCommand label
-name "sub:xdotool-first-uses"
+Testing this minimal Qt application
+\end_layout
+
+\begin_layout Standard
+Instead of using the low-level xdotool commands as described in chapter
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:xdotool-tutorial"
+
+\end_inset
+
+, the minimal Qt application bash testing script is tested with higher-level
+ functions:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "minimal_project/minimal_project.sh"
+lstparams "breaklines=true,language={bash}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+minimal.sh
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -483,14 +538,52 @@ name "sub:xdotool-first-uses"
 \end_layout
 
 \begin_layout Standard
-Run the minimal Qt application.
- Then start a terminal.
- 
+It opens the application, closes it by using ALT-F4, re-starts the application,
+ then closes it by using the mouse.
+\end_layout
+
+\begin_layout Section
+\start_of_appendix
+Appendix
+\end_layout
+
+\begin_layout Section
+xdotool minimal tutorial
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:xdotool-tutorial"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-'xdotool' can detect a window with 'Dialog' as its title with the following
- command:
+This is a step-by-step minimal xdotool tutorial.
+\end_layout
+
+\begin_layout Standard
+Start the minimal Qt application in chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Creating-a-minimal-qt-application"
+
+\end_inset
+
+.
+ The minimal application will start (as shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:minimal-application"
+
+\end_inset
+
+) with window name 'Dialog'.
+\end_layout
+
+\begin_layout Standard
+'xdotool' can theoretically be used to detect that window with 'Dialog'
+ as its title with the following command:
 \end_layout
 
 \begin_layout Standard
@@ -794,63 +887,6 @@ xdotool windowactivate $(wmctrl -l | egrep "Dialog" | cut -f 1 -d ' ') sleep
 
 \begin_layout Standard
 With these snippets of knowledge, one can create a decent test script
-\end_layout
-
-\begin_layout Subsection
-Testing this minimal Qt application
-\end_layout
-
-\begin_layout Standard
-Instead of using the low-level xdotool commands as described in chapter
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:xdotool-first-uses"
-
-\end_inset
-
-, the minimal Qt application bash testing script is tested with higher-level
- functions:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float algorithm
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset CommandInset include
-LatexCommand lstinputlisting
-filename "minimal_project/minimal_project.sh"
-lstparams "breaklines=true,language={bash}"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-minimal.sh
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-It opens the application, closes it by using ALT-F4, re-starts the application,
- then closes it by using the mouse.
 \end_layout
 
 \begin_layout Standard
