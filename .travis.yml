@@ -7,7 +7,7 @@ install:
   - sudo apt-get install -qq wmctrl
   - sudo apt-get install -qq leafpad
   - sudo apt-get install -qq gedit
-  - sudo apt-get install -qq wmaker-common
+  - sudo apt-get install -qq wmaker
 
 # Start virtual X server, from https://docs.travis-ci.com/user/gui-and-headless-browsers/
 before_script:
