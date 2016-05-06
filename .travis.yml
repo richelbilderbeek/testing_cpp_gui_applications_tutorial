@@ -16,9 +16,9 @@ before_script:
 
 script:
   - cd scripts; ./is_xdotool_present_test.sh; cd ..
-  - ./is_wmctrl_present_test.sh
-  - ./close_first_dialog_with_name_test.sh
-  - cd minimal_project; ./minimal_project.sh; cd ..
+  - cd scripts; ./is_wmctrl_present_test.sh; cd ..
+  - cd scripts; ./close_first_dialog_with_name_test.sh; cd ..
+  - cd minimal_project; qmake; make; ./minimal_project.sh; cd ..
   - leafpad &
   - gedit &
   - wmctrl -l

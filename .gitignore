@@ -49,3 +49,6 @@ h2.dot
 h1.dot
 BoostGraphTutorial/boost_graph_tutorial.log
 build-*
+moc_*
+ui_*
+minimal_project/minimal_project

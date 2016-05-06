@@ -1,5 +1,5 @@
 #!/bin/bash
-myexe="../build-minimal_project-Desktop-Debug/minimal_project"
+myexe="minimal_project"
 dialog_name="Dialog"
 
 # Check if xdotool is installed
@@ -57,6 +57,9 @@ sleep 1
 
 # Obtaining the window geometry
 echo `xdotool getwindowgeometry $id`
+
+
+exit
 
 # Extracting the dimensions
 . ../scripts/get_x_of_first_dialog_with_name.sh
