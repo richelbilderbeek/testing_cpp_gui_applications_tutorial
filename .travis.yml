@@ -7,6 +7,7 @@ install:
   - sudo apt-get install -qq wmctrl
   - sudo apt-get install -qq leafpad
   - sudo apt-get install -qq gedit
+  - sudo apt-get install -qq xfwm4
 
 # Start virtual X server, from https://docs.travis-ci.com/user/gui-and-headless-browsers/
 before_script:
@@ -15,6 +16,7 @@ before_script:
   - sleep 3 # give xvfb some time to start
 
 script:
+  - xfwm4
   - cd scripts; ./is_xdotool_present_test.sh; cd ..
   - cd scripts; ./is_wmctrl_present_test.sh; cd ..
   - cd scripts; ./close_first_dialog_with_name_test.sh; cd ..
