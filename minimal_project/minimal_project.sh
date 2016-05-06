@@ -43,8 +43,8 @@ else
 fi
 
 # Close the dialog using ALT-F4
-. ../scripts/close_dialog_with_name.sh
-error=`close_dialog_with_name $dialog_name`
+. ../scripts/close_first_dialog_with_name.sh
+error=`close_first_dialog_with_name $dialog_name`
 if [ ! $error -eq 0 ]
 then 
   echo "Error: could not close dialog with name "$dialog_name
@@ -58,26 +58,27 @@ sleep 1
 # Obtaining the window geometry
 echo `xdotool getwindowgeometry $id`
 
-
-exit 0
-
-x=`xdotool getwindowgeometry $(wmctrl -l | egrep "Dialog" | cut -f 1 -d ' ') | egrep "Position" | cut -d ':' -f 2 | cut -d '(' -f 1 | cut -d ',' -f 1`
-y=`xdotool getwindowgeometry $(wmctrl -l | egrep "Dialog" | cut -f 1 -d ' ') | egrep "Position" | cut -d ':' -f 2 | cut -d '(' -f 1 | cut -d ',' -f 2`
-w=`xdotool getwindowgeometry $(wmctrl -l | egrep "Dialog" | cut -f 1 -d ' ') | egrep "Geometry" | cut -d ':' -f 2 | cut -d 'x' -f 1`
-h=`xdotool getwindowgeometry $(wmctrl -l | egrep "Dialog" | cut -f 1 -d ' ') | egrep "Geometry" | cut -d ':' -f 2 | cut -d 'x' -f 2`
-
-echo "x:"$x
+# Extracting the dimensions
+. ../scripts/get_x_of_first_dialog_with_name.sh
+. ../scripts/get_y_of_first_dialog_with_name.sh
+. ../scripts/get_width_of_first_dialog_with_name.sh
+. ../scripts/get_height_of_first_dialog_with_name.sh
+x=`get_x_of_first_dialog_with_name $dialog_name`
+y=`get_y_of_first_dialog_with_name $dialog_name`
+w=`get_width_of_first_dialog_with_name $dialog_name`
+h=`get_height_of_first_dialog_with_name $dialog_name`
+echo "x: "$x
 echo "y: "$y
 echo "width:"$w
 echo "height: "$h
+
+# Calculating the position of where to put the mouse, to be able to click on the cross
 mouse_x=$(($x+$w-16))
 mouse_y=$(($y-32))
 echo "where to click, x coordinat: "$mouse_x
 echo "where to click, y coordinat: "$mouse_y
 
 echo "Closing the dialog using a mouse click"
-xdotool windowactivate $(wmctrl -l | egrep "Dialog" | cut -f 1 -d ' ') sleep 0.1 mousemove $mouse_x $mouse_y click 1
+xdotool windowactivate $id sleep 0.1 mousemove $mouse_x $mouse_y click 1
 
-
-
-
+exit 0
