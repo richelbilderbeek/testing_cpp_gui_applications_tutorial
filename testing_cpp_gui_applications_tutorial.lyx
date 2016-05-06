@@ -73,7 +73,7 @@
 \begin_body
 
 \begin_layout Title
-Testing C++ GUI applications
+Testing C++ Qt GUI applications
 \end_layout
 
 \begin_layout Author
@@ -94,8 +94,8 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-This is `Testing C++ GUI applications', version 0.1, a tutorial about testing
- C++ GUI applications.
+This is `Testing C++ Qt GUI applications', version 0.1, a tutorial about
+ testing C++ GUI applications written with Qt.
 \end_layout
 
 \begin_layout Standard
@@ -121,11 +121,6 @@ xdotool
 
 \begin_layout Standard
 xdotool is a GNU/Linux command-line tool.
-\end_layout
-
-\begin_layout Standard
-Too bad, it does not work that smoothly with Qt, as will be described in
- the first chapter, but we can handle that.
 \end_layout
 
 \begin_layout Section
@@ -478,6 +473,13 @@ The minimal application
 
 \begin_layout Subsection
 xdotool first uses
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:xdotool-first-uses"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -799,7 +801,16 @@ Testing this minimal Qt application
 \end_layout
 
 \begin_layout Standard
-Here is the minimal Qt application bash testing script:
+Instead of using the low-level xdotool commands as described in chapter
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:xdotool-first-uses"
+
+\end_inset
+
+, the minimal Qt application bash testing script is tested with higher-level
+ functions:
 \end_layout
 
 \begin_layout Standard
@@ -838,8 +849,8 @@ minimal.sh
 \end_layout
 
 \begin_layout Standard
-It opens the application, closes it by mouse, re-starts the application,
- then closes it by using ALT-F4.
+It opens the application, closes it by using ALT-F4, re-starts the application,
+ then closes it by using the mouse.
 \end_layout
 
 \begin_layout Standard

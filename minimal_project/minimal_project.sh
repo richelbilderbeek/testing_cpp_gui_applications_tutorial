@@ -2,7 +2,6 @@
 myexe="minimal_project"
 dialog_name="Dialog"
 
-
 echo "Check if xdotool is installed"
 . ../scripts/is_xdotool_present.sh
 if [ $(is_xdotool_present) -eq 0 ]
@@ -10,7 +9,6 @@ then
   echo "ERROR: xdotool not installed, type 'sudo apt-get install xdotool' to install it"
   exit 1
 fi
-
 
 echo "Check if wmctrl is installed"
 . ../scripts/is_wmctrl_present.sh
@@ -20,7 +18,6 @@ then
   exit 1
 fi
 
-
 echo "Check if executable is present"
 if [ ! -e $myexe ]
 then
@@ -28,11 +25,9 @@ then
   exit 1
 fi
 
-
 echo "Starting the application"
 ./$myexe &
 sleep 1
-
 
 echo "Check if the dialog can be found"
 . ../scripts/get_dialog_id.sh
@@ -43,7 +38,6 @@ then
   exit 1
 fi
 
-
 echo "Close the dialog using ALT-F4"
 . ../scripts/close_first_dialog_with_name.sh
 error=`close_first_dialog_with_name $dialog_name`
@@ -53,12 +47,9 @@ then
   exit 1
 fi
 
-
-
 echo "Starting the application again"
 ./$myexe &
 sleep 1
-
 
 echo "Close the dialog by setting the mouse at the closing glyph and clicking"
 . ../scripts/set_mouse_at_close_glyph_of_first_dialog_with_name.sh
