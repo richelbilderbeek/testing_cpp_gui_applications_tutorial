@@ -16,7 +16,7 @@ before_script:
   - sleep 3 # give xvfb some time to start
 
 script:
-  - wmaker
+  - wmaker start 1
   - cd scripts; ./is_xdotool_present_test.sh; cd ..
   - cd scripts; ./is_wmctrl_present_test.sh; cd ..
   - cd scripts; ./close_first_dialog_with_name_test.sh; cd ..
