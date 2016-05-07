@@ -1,5 +1,5 @@
-#LyX 2.0 created this file. For more info see http://www.lyx.org/
-\lyxformat 413
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
 \begin_document
 \begin_header
 \textclass article
@@ -24,13 +24,13 @@
 \font_roman default
 \font_sans default
 \font_typewriter default
+\font_math auto
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
 \font_sf_scale 100
 \font_tt_scale 100
-
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -41,15 +41,24 @@
 \use_hyperref false
 \papersize default
 \use_geometry false
-\use_amsmath 1
-\use_esint 1
-\use_mhchem 1
-\use_mathdots 1
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
 \cite_engine basic
+\cite_engine_type default
+\biblio_style plain
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
 \suppress_date false
+\justification true
 \use_refstyle 1
 \index Index
 \shortcut idx
@@ -179,7 +188,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Create a new project
@@ -222,7 +231,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Create a new Qt Widgets application
@@ -262,7 +271,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Give your new application a suitable location
@@ -302,7 +311,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Use the default kits
@@ -342,7 +351,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Set the base class of your application's main window to QDialog
@@ -382,7 +391,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Skip using git via Qt Creator
@@ -421,7 +430,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Part of the code of your first minimal project
@@ -466,7 +475,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 The minimal application
@@ -525,7 +534,7 @@ lstparams "breaklines=true,language={bash}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 minimal_project.sh
@@ -552,12 +561,12 @@ Note that this scripts is stripped down to fit on one page.
 \end_layout
 
 \begin_layout Section
-Enter secret code
+Select a class
 \end_layout
 
 \begin_layout Standard
-In this project, we create an application in which a secret code must be
- entered
+In this project, we create an application in which a selection must be made
+ by the keyboard shortcut CTRL-M
 \end_layout
 
 \begin_layout Itemize
@@ -584,9 +593,9 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Graphics
-	filename images/enter_secret_code_1.png
-	width 100text%
+	filename images/select_class_1.png
 
 \end_inset
 
@@ -594,13 +603,126 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 The application
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:enter_secret_code"
+name "fig:select_class"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Testing the application
+\end_layout
+
+\begin_layout Standard
+Here code:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "select_class/select_class.sh"
+lstparams "breaklines=true,language={bash}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+select_class.sh
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Again this is a stripped-down version
+\end_layout
+
+\begin_layout Section
+Enter secret code
+\end_layout
+
+\begin_layout Standard
+In this project, we create an application in which a four digit number must
+ be typed in a QSpinBox
+\end_layout
+
+\begin_layout Itemize
+Creating the application
+\end_layout
+
+\begin_layout Itemize
+Testing the application application
+\end_layout
+
+\begin_layout Subsection
+Creating the application
+\end_layout
+
+\begin_layout Standard
+Here it is:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/enter_secret_code_1.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The application
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:enter_secret_code-1"
 
 \end_inset
 
@@ -644,7 +766,7 @@ lstparams "breaklines=true,language={bash}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 enter_secret_code.sh
@@ -811,7 +933,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 wmctrl finds a window with Dialog as its title
@@ -1111,7 +1233,7 @@ lstparams "breaklines=true,language={bash}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 close_first_dialog_with_name.sh
@@ -1146,7 +1268,7 @@ lstparams "breaklines=true,language={bash}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 get_dialog_id.sh
@@ -1181,7 +1303,7 @@ lstparams "breaklines=true,language={bash}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 get_height_of_first_dialog_with_name.sh
@@ -1216,7 +1338,7 @@ lstparams "breaklines=true,language={bash}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 get_width_of_first_dialog_with_name.sh
@@ -1251,7 +1373,7 @@ lstparams "breaklines=true,language={bash}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 get_x_of_first_dialog_with_name.sh
@@ -1286,7 +1408,7 @@ lstparams "breaklines=true,language={bash}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 get_y_of_first_dialog_with_name.sh
@@ -1321,7 +1443,7 @@ lstparams "breaklines=true,language={bash}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 is_dialog_present.sh
@@ -1356,7 +1478,7 @@ lstparams "breaklines=true,language={bash}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 is_wmctrl_present.sh
@@ -1391,7 +1513,7 @@ lstparams "breaklines=true,language={bash}"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 is_xdotool_present.sh
