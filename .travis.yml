@@ -8,6 +8,7 @@ install:
   - sudo apt-get install -qq xdotool
   - sudo apt-get install -qq wmctrl
   - sudo apt-get install -qq libgtk-3-dev # To fix '** (gedit:19382): WARNING **: Could not load theme icon gtk-home: Icon 'gtk-home' not present in theme'
+  - sudo apt-get install -qq gconf-defaults-service # To fix 'Xlib:  extension "RANDR" missing on display ":99.0".'
   - sudo apt-get install -qq gedit
   - sudo apt-get install -qq leafpad
   - sudo apt-get install -qq mousepad
