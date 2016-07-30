@@ -7,7 +7,10 @@ install:
   - sudo apt-get install -qq metacity
   - sudo apt-get install -qq xdotool
   - sudo apt-get install -qq wmctrl
+  - sudo apt-get install -qq libgtk-3-dev # To fix '** (gedit:19382): WARNING **: Could not load theme icon gtk-home: Icon 'gtk-home' not present in theme'
   - sudo apt-get install -qq gedit
+  - sudo apt-get install -qq leafpad
+  - sudo apt-get install -qq mousepad
 
 before_script:
   - sh -e /etc/init.d/xvfb start
@@ -22,7 +25,7 @@ script:
   - cd scripts; ./close_first_dialog_with_name_test.sh; cd ..
   - cd minimal_project; qmake; make; ./minimal_project_complete.sh; ./minimal_project.sh; cd ..
   - gedit &
-  - gedit &
-  - gedit &
+  - leafpad &
+  - mousepad &
   - wmctrl -m
   - wmctrl -l
