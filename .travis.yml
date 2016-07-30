@@ -7,7 +7,6 @@ install:
   - sudo apt-get install -qq metacity
   - sudo apt-get install -qq xdotool
   - sudo apt-get install -qq wmctrl
-  - sudo apt-get install -qq leafpad
   - sudo apt-get install -qq gedit
 
 before_script:
@@ -18,12 +17,12 @@ before_script:
 
 script:
   - export
-  - 
   - cd scripts; ./is_xdotool_present_test.sh; cd ..
   - cd scripts; ./is_wmctrl_present_test.sh; cd ..
   - cd scripts; ./close_first_dialog_with_name_test.sh; cd ..
   - cd minimal_project; qmake; make; ./minimal_project_complete.sh; ./minimal_project.sh; cd ..
-  - DISPLAY=:99; leafpad &
+  - DISPLAY=:99; gedit &
+  - DISPLAY=:99; gedit &
   - DISPLAY=:99; gedit &
   - DISPLAY=:99; wmctrl -m
   - DISPLAY=:99; wmctrl -l
