@@ -1,6 +1,7 @@
 sudo: require
 language: cpp
 compiler: gcc
+env: DISPLAY=:99.0
 
 install:
   - sudo apt-get install -qq xdotool
