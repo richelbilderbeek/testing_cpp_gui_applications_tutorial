@@ -18,6 +18,7 @@ before_script:
 
 script:
   - export
+  - DISPLAY=:99
   - cd scripts; ./is_xdotool_present_test.sh; cd ..
   - cd scripts; ./is_wmctrl_present_test.sh; cd ..
   - cd scripts; ./close_first_dialog_with_name_test.sh; cd ..
@@ -25,7 +26,5 @@ script:
   - leafpad &
   - gedit &
   - wmctrl -m
-  - DISPLAY=:0; wmctrl -l
-  - DISPLAY=:1; wmctrl -l
   - DISPLAY=:99; wmctrl -l
   - DISPLAY=:99.0; wmctrl -l
