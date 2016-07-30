@@ -18,13 +18,13 @@ before_script:
 
 script:
   - export
-  - DISPLAY=:99
+  - 
   - cd scripts; ./is_xdotool_present_test.sh; cd ..
   - cd scripts; ./is_wmctrl_present_test.sh; cd ..
   - cd scripts; ./close_first_dialog_with_name_test.sh; cd ..
   - cd minimal_project; qmake; make; ./minimal_project_complete.sh; ./minimal_project.sh; cd ..
-  - leafpad &
-  - gedit &
-  - wmctrl -m
+  - DISPLAY=:99; leafpad &
+  - DISPLAY=:99; gedit &
+  - DISPLAY=:99; wmctrl -m
   - DISPLAY=:99; wmctrl -l
   - DISPLAY=:99.0; wmctrl -l
