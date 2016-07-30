@@ -21,9 +21,8 @@ script:
   - cd scripts; ./is_wmctrl_present_test.sh; cd ..
   - cd scripts; ./close_first_dialog_with_name_test.sh; cd ..
   - cd minimal_project; qmake; make; ./minimal_project_complete.sh; ./minimal_project.sh; cd ..
-  - DISPLAY=:99 gedit &
-  - DISPLAY=:99 gedit &
-  - DISPLAY=:99 gedit &
-  - DISPLAY=:99 wmctrl -m
-  - DISPLAY=:99 wmctrl -l
-  - DISPLAY=:99 wmctrl -l
+  - gedit &
+  - gedit &
+  - gedit &
+  - wmctrl -m
+  - wmctrl -l
