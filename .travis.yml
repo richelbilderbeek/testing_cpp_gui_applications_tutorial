@@ -1,14 +1,15 @@
 sudo: required
-language: cpp
-compiler: gcc
 
 before_install:
   - "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1024x768x24 +extension RANDR"
 
 install:
-  # xdotool
+  - sudo apt-get install -y leafpad
   - sudo apt-get install -qq xdotool
-  - sudo apt-get install -qq leafpad
+
+before_script:
+  - export DISPLAY=:99.0
+  - sleep 3
 
 script:
   - leafpad "test.txt" &
@@ -30,13 +31,3 @@ script:
   - sleep 10
   - ls
   - cat onetwothree.txt
-  - cd scripts; ./is_xdotool_present_test.sh; cd ..
-  - cd scripts; ./is_wmctrl_present_test.sh; cd ..
-  - cd scripts; ./close_first_dialog_with_name_test.sh; cd ..
-  - cd minimal_project; qmake; make; ./minimal_project_complete.sh; ./minimal_project.sh; cd ..
-  - gedit "test1" &
-  - gedit "test2" &
-  - leafpad &
-  - mousepad &
-  - wmctrl -m
-  - wmctrl -l
