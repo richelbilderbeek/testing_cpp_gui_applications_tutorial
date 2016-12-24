@@ -1,26 +1,35 @@
-sudo: require
+sudo: required
 language: cpp
 compiler: gcc
-env: DISPLAY=:99.0
+
+before_install:
+  - "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1024x768x24 +extension RANDR"
 
 install:
-  - sudo apt-get install -qq metacity
+  # xdotool
   - sudo apt-get install -qq xdotool
-  - sudo apt-get install -qq wmctrl
-  - sudo apt-get install -qq libgtk-3-dev # To fix '** (gedit:19382): WARNING **: Could not load theme icon gtk-home: Icon 'gtk-home' not present in theme'
-  - sudo apt-get install -qq gconf-defaults-service # To fix 'Xlib:  extension "RANDR" missing on display ":99.0".'
-  - sudo apt-get install -qq gedit
   - sudo apt-get install -qq leafpad
-  - sudo apt-get install -qq mousepad
-
-before_script:
-  - sh -e /etc/init.d/xvfb start
-  - sleep 10 # give xvfb some time to start
-  - metacity --sm-disable --replace &
-  - sleep 10 # give metacity some time to start
 
 script:
-  - export
+  - leafpad "test.txt" &
+  - sleep 3
+  - xlsclients -l
+  - xdotool type "test"
+  - xdotool key ctrl+s
+  - sleep 10
+  - ls
+  - cat test.txt
+  - leafpad "onetwothree.txt" &
+  - sleep 3
+  - xdotool type "unosdostres"
+  - xdotool key ctrl+s
+  - sleep 1 
+  - xdotool key alt+F10
+  - sleep 1
+  - xdotool mousemove 0 1023 click 3
+  - sleep 10
+  - ls
+  - cat onetwothree.txt
   - cd scripts; ./is_xdotool_present_test.sh; cd ..
   - cd scripts; ./is_wmctrl_present_test.sh; cd ..
   - cd scripts; ./close_first_dialog_with_name_test.sh; cd ..
