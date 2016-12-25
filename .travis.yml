@@ -12,6 +12,11 @@ before_script:
   - sleep 3
 
 script:
+  - export
+  - cd scripts; ./is_xdotool_present_test.sh; cd ..
+  - cd scripts; ./is_wmctrl_present_test.sh; cd ..
+  - cd scripts; ./close_first_dialog_with_name_test.sh; cd ..
+  - cd minimal_project; qmake; make; ./minimal_project_complete.sh; ./minimal_project.sh; cd ..
   - leafpad "test.txt" &
   - sleep 3
   - xlsclients -l
@@ -58,14 +63,3 @@ script:
 #   - sleep 10 # give metacity some time to start
 
 # script:
-#   - export
-#   - cd scripts; ./is_xdotool_present_test.sh; cd ..
-#   - cd scripts; ./is_wmctrl_present_test.sh; cd ..
-#   - cd scripts; ./close_first_dialog_with_name_test.sh; cd ..
-#   - cd minimal_project; qmake; make; ./minimal_project_complete.sh; ./minimal_project.sh; cd ..
-#   - gedit "test1" &
-#   - gedit "test2" &
-#   - leafpad &
-#   - mousepad &
-#   - wmctrl -m
-#   - wmctrl -l
