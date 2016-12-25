@@ -31,3 +31,41 @@ script:
   - sleep 10
   - ls
   - cat onetwothree.txt
+
+
+
+
+
+# sudo: require
+# language: cpp
+# compiler: gcc
+# env: DISPLAY=:99.0
+
+# install:
+#   - sudo apt-get install -qq metacity
+#   - sudo apt-get install -qq xdotool
+#   - sudo apt-get install -qq wmctrl
+#   - sudo apt-get install -qq libgtk-3-dev # To fix '** (gedit:19382): WARNING **: Could not load theme icon gtk-home: Icon 'gtk-home' not present in theme'
+#   - sudo apt-get install -qq gconf-defaults-service # To fix 'Xlib:  extension "RANDR" missing on display ":99.0".'
+#   - sudo apt-get install -qq gedit
+#   - sudo apt-get install -qq leafpad
+#   - sudo apt-get install -qq mousepad
+
+# before_script:
+#   - sh -e /etc/init.d/xvfb start
+#   - sleep 10 # give xvfb some time to start
+#   - metacity --sm-disable --replace &
+#   - sleep 10 # give metacity some time to start
+
+# script:
+#   - export
+#   - cd scripts; ./is_xdotool_present_test.sh; cd ..
+#   - cd scripts; ./is_wmctrl_present_test.sh; cd ..
+#   - cd scripts; ./close_first_dialog_with_name_test.sh; cd ..
+#   - cd minimal_project; qmake; make; ./minimal_project_complete.sh; ./minimal_project.sh; cd ..
+#   - gedit "test1" &
+#   - gedit "test2" &
+#   - leafpad &
+#   - mousepad &
+#   - wmctrl -m
+#   - wmctrl -l
