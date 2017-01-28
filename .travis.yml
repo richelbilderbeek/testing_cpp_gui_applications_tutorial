@@ -16,6 +16,7 @@ before_script:
   - sleep 3
 
 script:
+  # Jorn and Thijs work
   - export
   - leafpad "test.txt" &
   - sleep 3
@@ -53,6 +54,10 @@ script:
   - ./minimal_project_test_complete
   - ./minimal_project_test
   - cd ..
+  # Misc
+  # Demo xprop
+  - xprop
+  - xprop -root
 
 
 
