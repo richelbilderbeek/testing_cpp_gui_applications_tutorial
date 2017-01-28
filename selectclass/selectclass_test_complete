@@ -3,7 +3,7 @@ myexe="select_class"
 dialog_name="Select a class"
 
 echo "Check if xdotool is installed"
-. ../scripts/is_xdotool_present.sh
+. ../scripts/is_xdotool_present
 if [ $(is_xdotool_present) -eq 0 ]
 then
   echo "ERROR: xdotool not installed, type 'sudo apt-get install xdotool' to install it"
@@ -11,7 +11,7 @@ then
 fi
 
 echo "Check if wmctrl is installed"
-. ../scripts/is_wmctrl_present.sh
+. ../scripts/is_wmctrl_present
 if [ $(is_wmctrl_present) -eq 0 ]
 then
   echo "ERROR: wmctrl not installed, type 'sudo apt-get install wmctrl' to install it"
@@ -30,7 +30,7 @@ echo "Starting the application"
 sleep 1
 
 echo "Check if the dialog can be found"
-. ../scripts/get_dialog_id.sh
+. ../scripts/get_dialog_id
 id=`get_dialog_id $dialog_name`
 if [ ! $id ] 
 then 

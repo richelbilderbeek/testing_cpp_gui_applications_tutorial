@@ -7,7 +7,7 @@ echo "Starting the application"
 sleep 1
 
 echo "Check if the dialog can be found"
-. ../scripts/get_dialog_id.sh
+. ../scripts/get_dialog_id
 id=`get_dialog_id $dialog_name`
 
 echo "Pick mage"
