@@ -56,7 +56,6 @@ script:
   - cd ..
   # Misc
   # Demo xprop
-  - xprop
   - xprop -root
 
 
