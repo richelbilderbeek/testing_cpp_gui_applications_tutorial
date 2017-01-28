@@ -9,7 +9,7 @@ then
 fi
 
 leafpad &
-sleep 1
+sleep 5
 must_be_something=`get_dialog_id "Leafpad"`
 
 if [ $must_be_something ] 
