@@ -17,3 +17,12 @@ xdotool is a GNU/Linux command-line tool.
 ##  Travis CI
 
 Travis CI is a continuous integration (hence the 'CI') tool.
+
+## Screenshots
+
+I think it is important to use screenshots.
+I do sometimes modify these for clarity. 
+Usually this involves sliding things together:
+
+![Before](introduction_minimal_project_1_before.png)
+![After](introduction_minimal_project_1_after.png)
