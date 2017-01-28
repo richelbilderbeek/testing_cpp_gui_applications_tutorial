@@ -26,3 +26,17 @@ Usually this involves sliding things together:
 
 ![Before](introduction_minimal_project_1_before.png)
 ![After](introduction_minimal_project_1_after.png)
+
+## Files
+
+Most folders contain
+
+ * Code for a GUI application
+ * build script of that application
+ * testing script of that application
+ * Documentation of that application
+
+In each of these folders: 
+
+ * The build script builds the application
+ * The test scripts pass

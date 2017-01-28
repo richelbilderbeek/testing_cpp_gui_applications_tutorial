@@ -36,7 +36,9 @@ script:
   - sleep 10
   - ls
   - cat onetwothree.txt
-
+  - ./minimal_project/minimal_project_build
+  - ./minimal_project/minimal_project_test_complete
+  - ./minimal_project/minimal_project_test
 
 
 
