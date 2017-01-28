@@ -5,7 +5,7 @@
 
 function get_dialog_id
 {
-  echo `xlsclients -l | egrep --before-context=2 "Name:.*$*" | egrep "Window" | cut -f 1 -d ":" | cut -f 2 -d " "`
+  echo `xlsclients -l | egrep --before-context=2 "Name:.*$*" | egrep "Window" | cut -f 1 -d ":" | cut -f 2 -d " " | head -n 1`
   # Cannot use wmctrl on Travis
   #echo `wmctrl -l | egrep "$*" | head -n 1 | cut -f 1 -d ' '`
 }
