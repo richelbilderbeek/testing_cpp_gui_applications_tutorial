@@ -1,4 +1,4 @@
-#include "selectclassdialog.h"
+#include "select_class_dialog.h"
 #include <QApplication>
 
 int main(int argc, char *argv[])

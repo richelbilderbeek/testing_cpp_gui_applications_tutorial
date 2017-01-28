@@ -1,5 +1,5 @@
-#include "selectclassdialog.h"
-#include "ui_selectclassdialog.h"
+#include "select_class_dialog.h"
+#include "ui_select_class_dialog.h"
 #include <QMessageBox>
 
 SelectClassDialog::SelectClassDialog(QWidget *parent) :

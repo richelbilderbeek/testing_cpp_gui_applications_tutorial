@@ -10,6 +10,10 @@ install:
   - sudo apt-get install -qq xdotool
   # wmctrl may be replaced by xlsclients later, as the latter has shown to work on Travis
   - sudo apt-get install -qq wmctrl 
+  # cowsay
+  - sudo apt-get install cowsay
+  - export PATH=/usr/bin:/bin:/usr/games
+
 
 before_script:
   - export DISPLAY=:99.0
