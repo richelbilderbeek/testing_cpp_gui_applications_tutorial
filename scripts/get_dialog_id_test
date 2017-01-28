@@ -10,7 +10,7 @@ fi
 
 leafpad &
 sleep 1
-must_be_something=`get_dialog_id "(Untitled)"`
+must_be_something=`get_dialog_id "Leafpad"`
 
 if [ $must_be_something ] 
 then 
