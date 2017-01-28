@@ -5,6 +5,8 @@ before_install:
 
 install:
   - sudo apt-get install -y leafpad
+  - sudo apt-get install -y mousepad
+  - sudo apt-get install -y gedit
   - sudo apt-get install -qq xdotool
 
 before_script:
@@ -32,6 +34,12 @@ script:
   - sleep 10
   - ls
   - cat onetwothree.txt
+  # Get some more windows, to see if xlsclients -l can distinguish those
+  - leafpad "1.txt" &
+  - leafpad "2.txt" &
+  - mousepad &
+  - leafpad &
+  - xlsclients -l
   # Scripts
   - cd scripts
   - ./is_xdotool_present_test.sh
