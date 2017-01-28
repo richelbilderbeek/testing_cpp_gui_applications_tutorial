@@ -1,5 +1,5 @@
 #!/bin/bash
-. close_first_dialog_with_name.sh
+. close_first_dialog_with_name
 
 must_be_one=`close_first_dialog_with_name "absent dialog"`
 if [ $must_be_one -eq 0 ]

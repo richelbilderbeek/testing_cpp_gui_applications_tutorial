@@ -4,7 +4,7 @@
 # as its window title
 # Returns an error code. A zero denotes that everything went OK
 
-. ../scripts/get_dialog_id.sh
+. ../scripts/get_dialog_id
 
 function close_first_dialog_with_name
 {

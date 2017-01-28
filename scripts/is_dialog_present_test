@@ -1,5 +1,5 @@
 #!/bin/bash
-. is_dialog_present.sh
+. is_dialog_present
 
 must_be_zero=`is_dialog_present "absent dialog"`
 if [ $must_be_zero -eq 1 ] 

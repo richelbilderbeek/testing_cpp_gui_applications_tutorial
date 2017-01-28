@@ -1,5 +1,5 @@
 #!/bin/bash
-. is_wmctrl_present.sh
+. is_wmctrl_present
 
 is_present=`is_wmctrl_present`
 

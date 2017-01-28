@@ -4,7 +4,7 @@
 # as its window title
 # Shows nothing if the window cannot be found
 
-. ../scripts/get_dialog_id.sh
+. ../scripts/get_dialog_id
 
 function get_x_of_first_dialog_with_name
 {

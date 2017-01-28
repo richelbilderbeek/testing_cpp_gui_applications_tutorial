@@ -1,5 +1,5 @@
 #!/bin/bash
-. is_xdotool_present.sh
+. is_xdotool_present
 
 is_present=`is_xdotool_present`
 

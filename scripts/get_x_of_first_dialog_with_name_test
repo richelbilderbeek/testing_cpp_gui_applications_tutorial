@@ -1,7 +1,7 @@
 #!/bin/bash
 
-. close_first_dialog_with_name.sh
-. get_x_of_first_dialog_with_name.sh
+. close_first_dialog_with_name
+. get_x_of_first_dialog_with_name
 
 window_name="(Untitled)"
 
