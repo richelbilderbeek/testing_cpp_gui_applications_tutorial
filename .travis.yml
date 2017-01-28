@@ -45,7 +45,8 @@ script:
   - xlsclients -l
   # Scripts
   - cd scripts
-  - ./is_xdotool_present_test.sh
+  - ./is_xdotool_present_test
+  - ./is_wmctrl_present_test
   - ./get_dialog_id_test
   - cd ..
   # Minimal project
