@@ -5,5 +5,8 @@
 
 function get_dialog_id
 {
+  # Use of obsolete wmctrl?
   echo `wmctrl -l | egrep "$*" | head -n 1 | cut -f 1 -d ' '`
+  #echo `xlsclients -l | egrep --before-context=2 "Name:  $*" | egrep "Window" | cut -f 1 -d ":" | cut -f 2 -d " "`
+
 }
