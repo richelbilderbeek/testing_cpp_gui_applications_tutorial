@@ -37,9 +37,11 @@ script:
   - ls
   - cat onetwothree.txt
   # Minimal project
-  - cd minimal_project; ./minimal_project_build;
-  - cd minimal_project; ./minimal_project_test_complete; cd ..
-  - cd minimal_project; ./minimal_project_test; cd ..
+  - cd minimal_project
+  - ./minimal_project_build
+  - ./minimal_project_test_complete
+  - ./minimal_project_test
+  - cd ..
 
 
 
