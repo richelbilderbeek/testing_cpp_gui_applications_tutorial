@@ -1,12 +1,10 @@
 # Minimal project
 
 Setting up a minimal project consists out of these steps:
+ * Creating a minimal Qt application
+ * Testing the minimal Qt application
 
-• Creating a minimal Qt application
-
-• Testing the minimal Qt application
-
-2.1 Creating a minimal Qt application
+## Creating a minimal Qt application
 
 Create a new Qt Creator project, by clicking from the Qt Creator menu 'File | New File or Project'.
 
@@ -40,10 +38,19 @@ Now run the application, by either pressing CTRL+R, selecting 'Build | Run' from
 
 ![The minimal application](minimal_project_8.png)
 
-2.2 Testing this minimal Qt application
+## Testing this minimal Qt application
 
-Instead of using the low-level xdotool commands as described in chapter [subsec:xdotool-tutorial], the minimal Qt application bash testing script is tested with higher-level functions:
+Instead of using the low-level xdotool commands as described in chapter [subsec:xdotool-tutorial], 
+the minimal Qt application bash testing script is tested with higher-level functions:
+
+[minimal_project.sh](minimal_project.sh)
+
+Listing: minimal_project.sh (summary)
 
 It opens the application, closes it by using ALT-F4, re-starts the application, then closes it by using the mouse.
 
 Note that this scripts is stripped down to fit on one page. 
+
+[minimal_project_complete.sh](minimal_project_complete.sh)
+
+Listing: minimal_project_complete.sh
