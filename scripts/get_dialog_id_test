@@ -1,5 +1,5 @@
 #!/bin/bash
-. get_dialog_id.sh
+. get_dialog_id
 
 must_be_nothing=`get_dialog_id "absent dialog"`
 if [ $must_be_nothing ] 

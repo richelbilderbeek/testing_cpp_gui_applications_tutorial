@@ -10,14 +10,6 @@ then
   exit 1
 fi
 
-echo "Check if wmctrl is installed"
-. ../scripts/is_wmctrl_present.sh
-if [ $(is_wmctrl_present) -eq 0 ]
-then
-  echo "ERROR: wmctrl not installed, type 'sudo apt-get install wmctrl' to install it"
-  exit 1
-fi
-
 echo "Check if executable is present"
 if [ ! -e $myexe ]
 then
@@ -30,7 +22,7 @@ echo "Starting the application"
 sleep 1
 
 echo "Check if the dialog can be found"
-. ../scripts/get_dialog_id.sh
+. ../scripts/get_dialog_id
 id=`get_dialog_id $dialog_name`
 if [ ! $id ] 
 then 

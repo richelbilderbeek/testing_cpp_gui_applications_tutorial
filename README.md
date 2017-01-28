@@ -15,3 +15,12 @@ Tools and libraries used:
  * 2. [minimal_project](minimal_project/README.md)
  * 3. [select_class](select_class/README.md)
  * 4. [enter_secret_code](enter_secret_code/README.md)
+
+## Contributing 
+
+Great! See [CONTRIBUTING.md](CONTRIBUTING.md).
+
+## Code of conduct
+
+This project follows the [Contributor Covenant][http://contributor-covenant.org]. See [code_of_conduct.md](code_of_conduct.md).
+

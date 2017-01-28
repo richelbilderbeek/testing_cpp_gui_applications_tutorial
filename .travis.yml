@@ -13,10 +13,6 @@ before_script:
 
 script:
   - export
-  - cd scripts; ./is_xdotool_present_test.sh; cd ..
-  - cd scripts; ./is_wmctrl_present_test.sh; cd ..
-  - cd scripts; ./close_first_dialog_with_name_test.sh; cd ..
-  - cd minimal_project; qmake; make; ./minimal_project_complete.sh; ./minimal_project.sh; cd ..
   - leafpad "test.txt" &
   - sleep 3
   - xlsclients -l
@@ -36,6 +32,11 @@ script:
   - sleep 10
   - ls
   - cat onetwothree.txt
+  # Scripts
+  - cd scripts
+  - ./is_xdotool_present_test.sh
+  - ./get_dialog_id_test
+  - cd ..
   # Minimal project
   - cd minimal_project
   - ./minimal_project_build
