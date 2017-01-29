@@ -1,7 +1,7 @@
 #!/bin/bash
-. close_first_dialog_with_name
+. close_first_dialog
 
-must_be_one=`close_first_dialog_with_name "absent dialog"`
+must_be_one=`close_first_dialog "absent dialog"`
 if [ $must_be_one -eq 0 ]
 then 
   echo "Error: should not be able to close an absent dialog"
@@ -11,8 +11,9 @@ fi
 echo "OK: could not close absent window"
 
 leafpad &
-sleep 1
-must_be_zero=`close_first_dialog_with_name "(Untitled)"`
+sleep 3
+
+must_be_zero=`close_first_dialog "Leafpad"`
 
 if [ $must_be_zero -eq 0 ] 
 then 

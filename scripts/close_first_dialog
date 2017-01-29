@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Close the first window with the arguments
+# as its window title
+# Returns an error code. A zero denotes that everything went OK
+
+. ../scripts/get_dialog_id
+
+function close_first_dialog
+{
+  id=`get_dialog_id "$@"`
+  if [ ! $id ] 
+  then
+    echo 1
+  else
+    xdotool windowactivate $id sleep 0.1 key alt+F4
+    echo 0
+  fi
+}
