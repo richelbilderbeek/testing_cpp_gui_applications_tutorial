@@ -31,8 +31,8 @@ then
 fi
 
 echo "Close the dialog using ALT-F4"
-. ../scripts/close_first_dialog_with_name
-error=`close_first_dialog_with_name $dialog_name`
+. ../scripts/close_first_dialog
+error=`close_first_dialog $dialog_name`
 if [ ! $error -eq 0 ]
 then 
   echo "Error: could not close dialog with name "$dialog_name
@@ -44,9 +44,9 @@ echo "Starting the application again"
 sleep 1
 
 echo "Close the dialog by setting the mouse at the closing glyph and clicking"
-. ../scripts/set_mouse_at_close_glyph_of_first_dialog_with_name
-set_mouse_at_close_glyph_of_first_dialog_with_name $dialog_name
+. ../scripts/set_mouse_at_close_glyph_of_first_dialog
+set_mouse_at_close_glyph_of_first_dialog $dialog_name
 sleep 1 # For suspense
 # Set the mouse at the closing glyph again (in case the user moved the mouse)
-set_mouse_at_close_glyph_of_first_dialog_with_name $dialog_name
+set_mouse_at_close_glyph_of_first_dialog $dialog_name
 xdotool click 1

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Counts the number of executables active
+
+function count_exes
+{
+  echo `xlsclients -l | egrep "  Name" | wc --lines`
+}

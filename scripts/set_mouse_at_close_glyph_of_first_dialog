@@ -22,13 +22,13 @@ function set_mouse_at_close_glyph_of_first_dialog
 
   # Get the geometry
   x=`get_x_of_first_dialog $exe_name`
-  #y=`get_y_of_first_dialog $exe_name`
-  #w=`get_width_of_first_dialog $exe_name`
+  y=`get_y_of_first_dialog $exe_name`
+  w=`get_width_of_first_dialog $exe_name`
 
   # Calculating the position of where to put the mouse, to be able to click on the cross
-  #mouse_x=$(($x+$w-16))
-  #mouse_y=$(($y-32))
+  mouse_x=$(($x+$w-16))
+  mouse_y=$(($y-32))
 
-  #xdotool windowactivate $id sleep 0.1 mousemove $mouse_x $mouse_y
+  xdotool windowactivate $id sleep 0.1 mousemove $mouse_x $mouse_y
   echo 0
 }

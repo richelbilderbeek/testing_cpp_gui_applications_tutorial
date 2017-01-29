@@ -11,17 +11,17 @@ echo "Check if the dialog can be found"
 id=`get_dialog_id $dialog_name`
 
 echo "Close the dialog using ALT-F4"
-. ../scripts/close_first_dialog_with_name
-close_first_dialog_with_name $dialog_name
+. ../scripts/close_first_dialog
+close_first_dialog $dialog_name
 
 echo "Starting the application again"
 ./$myexe &
 sleep 1
 
 echo "Close the dialog by setting the mouse at the closing glyph and clicking"
-. ../scripts/set_mouse_at_close_glyph_of_first_dialog_with_name
-set_mouse_at_close_glyph_of_first_dialog_with_name $dialog_name
+. ../scripts/set_mouse_at_close_glyph_of_first_dialog
+set_mouse_at_close_glyph_of_first_dialog $dialog_name
 sleep 1 # For suspense
 # Set the mouse at the closing glyph again (in case the user moved the mouse)
-set_mouse_at_close_glyph_of_first_dialog_with_name $dialog_name
+set_mouse_at_close_glyph_of_first_dialog $dialog_name
 xdotool click 1

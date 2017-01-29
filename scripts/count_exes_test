@@ -1,0 +1,19 @@
+#!/bin/bash
+. count_exes
+
+exes_before=`count_exes`
+echo "exes_before: "$exes_before
+
+leafpad &
+sleep 1
+
+exes_after=`count_exes`
+echo "exes_after: "$exes_after
+
+if [ $exes_before -eq $exes_after ] 
+then
+  echo "ERROR: leafpad not detected by count_exes"
+  exit 1
+else
+  echo "OK: leafpad detected by count_exes"
+fi
