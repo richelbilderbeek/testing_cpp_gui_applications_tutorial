@@ -1,0 +1,11 @@
+#!/bin/bash
+. is_leafpad_present
+
+is_present=`is_leafpad_present`
+
+if [ $is_present -eq 1 ] 
+then
+  echo "leafpad is present"
+else
+  echo "leafpad is absent, type 'sudo apt-get install leafpad' to install it"
+fi
