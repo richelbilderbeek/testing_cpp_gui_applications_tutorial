@@ -49,7 +49,7 @@ script:
   - xlsclients -l
   # Scripts
   - cd scripts
-  - ./close_first_dialogtest
+  - ./close_first_dialog_test
   - ./cowsay_twice_test
   - ./get_dialog_id_test
   - ./is_wmctrl_present_test
@@ -63,8 +63,8 @@ script:
   - ./minimal_project_test
   - cd ..
   # Select class
-  - cd selectclass
-  - ./selectclass_build
-  - ./selectclass_test_complete
-  - ./selectclass_test
+  - cd select_class
+  - ./select_class_build
+  - ./select_class_test_complete
+  - ./select_class_test
   - cd ..
