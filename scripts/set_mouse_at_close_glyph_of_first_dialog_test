@@ -1,0 +1,29 @@
+#!/bin/bash
+
+. close_first_dialog
+. is_leafpad_present
+. set_mouse_at_close_glyph_of_first_dialog
+
+is_present=`is_leafpad_present`
+
+if [ $is_present -eq 1 ] 
+then
+  echo "OK: leafpad is present"
+else
+  echo "ERROR: leafpad is absent, type 'sudo apt-get install leafpad' to install it"
+  exit 1
+fi
+
+exe_name="Leafpad"
+
+leafpad &
+sleep 1
+error_code=`set_mouse_at_close_glyph_of_first_dialog $exe_name`
+
+if [ $error_code -eq 1 ] 
+then 
+  echo "Error: could not find window with name "$exe_name
+  exit 1
+else
+  echo "OK: mouse is set to the closing glyph of the first dialog with name '"$exe_name"'"
+fi
