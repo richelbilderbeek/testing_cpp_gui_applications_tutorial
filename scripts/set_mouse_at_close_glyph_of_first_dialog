@@ -5,7 +5,7 @@
 # Returns an error code, of which 0 denotes OK, 1 denotes fail
 
 . ../scripts/get_dialog_id
-#. ../scripts/get_x_of_first_dialog
+. ../scripts/get_x_of_first_dialog
 #. ../scripts/get_y_of_first_dialog
 #. ../scripts/get_width_of_first_dialog
 #. ../scripts/get_height_of_first_dialog
@@ -21,7 +21,7 @@ function set_mouse_at_close_glyph_of_first_dialog
   fi
 
   # Get the geometry
-  #x=`get_x_of_first_dialog $exe_name`
+  x=`get_x_of_first_dialog $exe_name`
   #y=`get_y_of_first_dialog $exe_name`
   #w=`get_width_of_first_dialog $exe_name`
 

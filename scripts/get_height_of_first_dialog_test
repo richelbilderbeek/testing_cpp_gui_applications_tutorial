@@ -1,0 +1,19 @@
+#!/bin/bash
+
+. close_first_dialog
+. get_height_of_first_dialog
+
+exe_name="Leafpad"
+
+leafpad &
+sleep 1
+dialog_height=`get_height_of_first_dialog $exe_name`
+
+if [ -z $dialog_height  ] 
+then 
+  echo "Error: could not find window with name "$exe_name
+  exit 1
+else
+  echo "OK: found a height of "$dialog_height" of dialog with name '"$exe_name"'"
+  close_first_dialog $exe_name > /dev/null
+fi
