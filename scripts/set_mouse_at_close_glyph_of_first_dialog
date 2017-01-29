@@ -6,9 +6,9 @@
 
 . ../scripts/get_dialog_id
 . ../scripts/get_x_of_first_dialog
-#. ../scripts/get_y_of_first_dialog
-#. ../scripts/get_width_of_first_dialog
-#. ../scripts/get_height_of_first_dialog
+. ../scripts/get_y_of_first_dialog
+. ../scripts/get_width_of_first_dialog
+. ../scripts/get_height_of_first_dialog
 
 function set_mouse_at_close_glyph_of_first_dialog
 {
