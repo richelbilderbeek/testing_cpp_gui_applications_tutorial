@@ -50,6 +50,7 @@ script:
   # Scripts
   - cd scripts
   - ./close_first_dialog_test
+  - ./count_exes_test
   - ./cowsay_twice_test
   - ./get_dialog_id_test
   - ./get_height_of_first_dialog_test
