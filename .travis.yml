@@ -52,7 +52,6 @@ script:
   - ./close_first_dialogtest
   - ./cowsay_twice_test
   - ./get_dialog_id_test
-  - ./is_dialog_present_test
   - ./is_wmctrl_present_test
   - ./is_xdotool_present_test
   - ./set_mouse_at_close_glyph_of_first_dialog_with_name_test
