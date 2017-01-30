@@ -17,9 +17,24 @@ then
   exit 1
 fi
 
+echo "Counting number of executables"
+. ../scripts/count_exes
+exes_before=`count_exes`
+echo "exes_before: "$exes_before
+
 echo "Starting the application"
 ./$myexe &
 sleep 1
+
+
+exes_after=`count_exes`
+echo "exes_after: "$exes_after
+
+if [ $exes_before -eq $exes_after ] 
+then
+  echo "ERROR: just as much exes before and after starting the exe"
+fi
+
 
 echo "Check if the dialog can be found"
 . ../scripts/get_dialog_id
