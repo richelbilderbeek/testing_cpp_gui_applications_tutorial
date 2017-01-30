@@ -19,6 +19,8 @@ fi
 
 echo "Counting number of executables"
 . ../scripts/count_exes
+echo "Applications before:"
+echo `xlsclients -l | egrep "  Name"`
 exes_before=`count_exes`
 echo "exes_before: "$exes_before
 
@@ -27,6 +29,8 @@ echo "Starting the application"
 sleep 1
 
 
+echo "Applications after:"
+echo `xlsclients -l | egrep "  Name"`
 exes_after=`count_exes`
 echo "exes_after: "$exes_after
 
@@ -65,3 +69,4 @@ sleep 1 # For suspense
 # Set the mouse at the closing glyph again (in case the user moved the mouse)
 set_mouse_at_close_glyph_of_first_dialog $dialog_name
 xdotool click 1
+
