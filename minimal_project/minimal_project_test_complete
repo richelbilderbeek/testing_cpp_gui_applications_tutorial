@@ -20,7 +20,7 @@ fi
 echo "Counting number of executables"
 . ../scripts/count_exes
 echo "Applications before:"
-echo `xlsclients -l | egrep "  Name"`
+xlsclients -l
 exes_before=`count_exes`
 echo "exes_before: "$exes_before
 
@@ -30,7 +30,7 @@ sleep 1
 
 
 echo "Applications after:"
-echo `xlsclients -l | egrep "  Name"`
+xlsclients -l
 exes_after=`count_exes`
 echo "exes_after: "$exes_after
 
