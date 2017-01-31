@@ -25,9 +25,17 @@ then
   exit 1
 fi
 
+echo "Applications before:"
+xlsclients -l
+
+
 echo "Starting the application"
 ./$myexe &
-sleep 1
+sleep 3
+
+echo "Applications after:"
+xlsclients -l
+
 
 echo "Check if the dialog can be found"
 . ../scripts/get_dialog_id

@@ -63,6 +63,9 @@ script:
   - ./is_xdotool_present_test
   - ./set_mouse_at_close_glyph_of_first_dialog_test
   - cd ..
+  # Clean up
+  - sudo killall leafpad
+  - sudo killall mousepad
   # Minimal project
   - cd minimal_project
   - ./minimal_project_build
