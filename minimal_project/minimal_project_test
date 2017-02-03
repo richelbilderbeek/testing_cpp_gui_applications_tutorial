@@ -1,6 +1,6 @@
 #!/bin/bash
 myexe="minimal_project"
-dialog_name="Dialog"
+dialog_name="minimal_project"
 
 echo "Starting the application"
 ./$myexe &

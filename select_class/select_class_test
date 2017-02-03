@@ -1,6 +1,6 @@
 #!/bin/bash
 myexe="select_class"
-dialog_name="Select a class"
+dialog_name="select_class"
 
 echo "Starting the application"
 ./$myexe &
