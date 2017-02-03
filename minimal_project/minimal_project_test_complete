@@ -1,9 +1,14 @@
 #!/bin/bash
+. ../scripts/close_first_dialog
+. ../scripts/count_exes
+. ../scripts/get_dialog_id
+. ../scripts/is_xdotool_present
+. ../scripts/set_mouse_at_close_glyph_of_first_dialog
+
+
 myexe="minimal_project"
-dialog_name="minimal_project"
 
 echo "Check if xdotool is installed"
-. ../scripts/is_xdotool_present
 if [ $(is_xdotool_present) -eq 0 ]
 then
   echo "ERROR: xdotool not installed, type 'sudo apt-get install xdotool' to install it"
@@ -18,7 +23,6 @@ then
 fi
 
 echo "Counting number of executables"
-. ../scripts/count_exes
 echo "Applications before:"
 xlsclients -l
 exes_before=`count_exes`
@@ -41,32 +45,44 @@ fi
 
 
 echo "Check if the dialog can be found"
-. ../scripts/get_dialog_id
-id=`get_dialog_id $dialog_name`
+id=`get_dialog_id $myexe`
 if [ ! $id ] 
 then 
-  echo "Error: should detect window with name"$dialog_name
+  echo "Error: should detect window with name"$myexe
   exit 1
 fi
 
+sleep 1
+
 echo "Close the dialog using ALT-F4"
-. ../scripts/close_first_dialog
-error=`close_first_dialog $dialog_name`
+error=`close_first_dialog $myexe`
 if [ ! $error -eq 0 ]
 then 
-  echo "Error: could not close dialog with name "$dialog_name
+  echo "Error: could not close dialog with name "$myexe
   exit 1
 fi
+
+sleep 1
+
+echo "Check if the dialog is closed"
+id=`get_dialog_id $myexe`
+if [ $id ] 
+then 
+  echo "Error: dialog should be closed"
+  exit 1
+fi
+
+sleep 1
 
 echo "Starting the application again"
 ./$myexe &
 sleep 1
 
 echo "Close the dialog by setting the mouse at the closing glyph and clicking"
-. ../scripts/set_mouse_at_close_glyph_of_first_dialog
-set_mouse_at_close_glyph_of_first_dialog $dialog_name
+set_mouse_at_close_glyph_of_first_dialog $myexe
 sleep 1 # For suspense
+
 # Set the mouse at the closing glyph again (in case the user moved the mouse)
-set_mouse_at_close_glyph_of_first_dialog $dialog_name
+set_mouse_at_close_glyph_of_first_dialog $myexe
 xdotool click 1
 
