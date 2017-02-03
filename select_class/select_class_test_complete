@@ -19,7 +19,7 @@ then
 fi
 
 echo "Applications before:"
-xlsclients -l > 
+xlsclients -l
 
 echo "Starting the application"
 ./$myexe &
