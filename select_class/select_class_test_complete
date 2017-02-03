@@ -1,20 +1,13 @@
 #!/bin/bash
+. ../scripts/get_dialog_id
+. ../scripts/is_xdotool_present
+
 myexe="select_class"
-dialog_name="select_class"
 
 echo "Check if xdotool is installed"
-. ../scripts/is_xdotool_present
 if [ $(is_xdotool_present) -eq 0 ]
 then
   echo "ERROR: xdotool not installed, type 'sudo apt-get install xdotool' to install it"
-  exit 1
-fi
-
-echo "Check if wmctrl is installed"
-. ../scripts/is_wmctrl_present
-if [ $(is_wmctrl_present) -eq 0 ]
-then
-  echo "ERROR: wmctrl not installed, type 'sudo apt-get install wmctrl' to install it"
   exit 1
 fi
 
@@ -26,8 +19,7 @@ then
 fi
 
 echo "Applications before:"
-xlsclients -l
-
+xlsclients -l > 
 
 echo "Starting the application"
 ./$myexe &
@@ -38,16 +30,18 @@ xlsclients -l
 
 
 echo "Check if the dialog can be found"
-. ../scripts/get_dialog_id
-id=`get_dialog_id $dialog_name`
+id=`get_dialog_id $myexe`
 if [ ! $id ] 
 then 
-  echo "Error: should detect window with name"$dialog_name
+  echo "Error: should detect window with name"$myexe
   exit 1
 fi
 
 echo "Pick mage"
 xdotool windowactivate $id sleep 0.5 key alt+m sleep 0.5
+
+echo "Applications when having selected Mage:"
+xlsclients -l
 
 echo "Find new dialog"
 id_new=`get_dialog_id "You've picked: mage"`

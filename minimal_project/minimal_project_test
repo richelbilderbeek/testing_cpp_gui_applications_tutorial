@@ -1,27 +1,27 @@
 #!/bin/bash
+. ../scripts/close_first_dialog
+. ../scripts/get_dialog_id
+. ../scripts/set_mouse_at_close_glyph_of_first_dialog
+
 myexe="minimal_project"
-dialog_name="minimal_project"
 
 echo "Starting the application"
 ./$myexe &
 sleep 1
 
 echo "Check if the dialog can be found"
-. ../scripts/get_dialog_id
-id=`get_dialog_id $dialog_name`
+id=`get_dialog_id $myexe`
 
 echo "Close the dialog using ALT-F4"
-. ../scripts/close_first_dialog
-close_first_dialog $dialog_name
+close_first_dialog $myexe
 
-echo "Starting the application again"
-./$myexe &
-sleep 1
+# echo "Starting the application again"
+# ./$myexe &
+# sleep 1
 
-echo "Close the dialog by setting the mouse at the closing glyph and clicking"
-. ../scripts/set_mouse_at_close_glyph_of_first_dialog
-set_mouse_at_close_glyph_of_first_dialog $dialog_name
-sleep 1 # For suspense
-# Set the mouse at the closing glyph again (in case the user moved the mouse)
-set_mouse_at_close_glyph_of_first_dialog $dialog_name
-xdotool click 1
+# echo "Close the dialog by setting the mouse at the closing glyph and clicking"
+# set_mouse_at_close_glyph_of_first_dialog $myexe
+# sleep 1 # For suspense
+# # Set the mouse at the closing glyph again (in case the user moved the mouse)
+# set_mouse_at_close_glyph_of_first_dialog $myexe
+# xdotool click 1

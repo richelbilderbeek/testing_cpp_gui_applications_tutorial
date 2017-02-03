@@ -6,7 +6,8 @@
 exe_name="Leafpad"
 
 leafpad &
-sleep 1
+sleep 3
+
 dialog_width=`get_width_of_first_dialog $exe_name`
 
 if [ -z $dialog_width  ] 

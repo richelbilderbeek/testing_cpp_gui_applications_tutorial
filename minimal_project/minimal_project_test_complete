@@ -72,17 +72,17 @@ then
   exit 1
 fi
 
-sleep 1
+# sleep 1
 
-echo "Starting the application again"
-./$myexe &
-sleep 1
+# echo "Starting the application again"
+# ./$myexe &
+# sleep 1
 
-echo "Close the dialog by setting the mouse at the closing glyph and clicking"
-set_mouse_at_close_glyph_of_first_dialog $myexe
-sleep 1 # For suspense
+# echo "Close the dialog by setting the mouse at the closing glyph and clicking"
+# set_mouse_at_close_glyph_of_first_dialog $myexe
+# sleep 1 # For suspense
 
 # Set the mouse at the closing glyph again (in case the user moved the mouse)
-set_mouse_at_close_glyph_of_first_dialog $myexe
-xdotool click 1
+# set_mouse_at_close_glyph_of_first_dialog $myexe
+# xdotool click 1
 
