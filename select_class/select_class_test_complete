@@ -44,7 +44,9 @@ echo "Applications when having selected Mage:"
 xlsclients -l
 
 echo "Find new dialog"
-id_new=`get_dialog_id "You've picked: mage"`
+
+# Use get_dialog_id_impl_2, as it extract
+id_new=`get_dialog_id_impl_2 "Dialog"`
 if [ ! $id_new ] 
 then 
   echo "Error: could not detect correct window"

@@ -72,6 +72,7 @@ script:
   - ./minimal_project_test_complete
   - ./minimal_project_test
   - cd ..
+  - sudo killall minimal_project
   # Select class
   - cd select_class
   - ./select_class_build
