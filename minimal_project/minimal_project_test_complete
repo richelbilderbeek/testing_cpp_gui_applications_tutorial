@@ -2,11 +2,19 @@
 . ../scripts/close_first_dialog
 . ../scripts/count_exes
 . ../scripts/get_dialog_id
+. ../get_height_of_first_dialog
+. ../get_width_of_first_dialog
+. ../get_x_of_first_dialog
+. ../get_y_of_first_dialog
 . ../scripts/is_xdotool_present
 . ../scripts/set_mouse_at_close_glyph_of_first_dialog
 
 
-myexe="minimal_project"
+exe_name="minimal_project"
+
+#################################
+# Check if all needed is present
+#################################
 
 echo "Check if xdotool is installed"
 if [ $(is_xdotool_present) -eq 0 ]
@@ -16,11 +24,15 @@ then
 fi
 
 echo "Check if executable is present"
-if [ ! -e $myexe ]
+if [ ! -e $exe_name ]
 then
-  echo "Executable '"$myexe"' not found, run 'qmake' and 'make' in this folder to create it"
+  echo "Executable '"$exe_name"' not found, run 'qmake' and 'make' in this folder to create it"
   exit 1
 fi
+
+###############################
+# Counting applications
+###############################
 
 echo "Counting number of executables"
 echo "Applications before:"
@@ -28,10 +40,16 @@ xlsclients -l
 exes_before=`count_exes`
 echo "exes_before: "$exes_before
 
+###############################
+# Starting the application
+###############################
 echo "Starting the application"
-./$myexe &
+./$exe_name &
 sleep 1
 
+###############################
+# Counting applications
+###############################
 
 echo "Applications after:"
 xlsclients -l
@@ -43,46 +61,89 @@ then
   echo "ERROR: just as much exes before and after starting the exe"
 fi
 
+###############################
+# Check if application can be detected
+###############################
 
 echo "Check if the dialog can be found"
-id=`get_dialog_id $myexe`
+id=`get_dialog_id $exe_name`
 if [ ! $id ] 
 then 
-  echo "Error: should detect window with name"$myexe
+  echo "Error: should detect window with name"$exe_name
   exit 1
 fi
 
 sleep 1
 
+################
+# Show geometry
+################
+dialog_x=`get_x_of_first_dialog $exe_name`
+
+if [ -z $dialog_x  ] 
+then 
+  echo "Error: could not find window with name "$exe_name
+  exit 1
+else
+  echo "OK: found an x of "$dialog_x" of dialog with name '"$exe_name"'"
+fi
+
+sleep 1
+
+dialog_y=`get_y_of_first_dialog $exe_name`
+
+if [ -z $dialog_y  ] 
+then 
+  echo "Error: could not find window with name "$exe_name
+  exit 1
+else
+  echo "OK: found a y of "$dialog_y" of dialog with name '"$exe_name"'"
+fi
+
+sleep 1
+
+dialog_width=`get_width_of_first_dialog $exe_name`
+
+if [ -z $dialog_width  ] 
+then 
+  echo "Error: could not find window with name "$exe_name
+  exit 1
+else
+  echo "OK: found a width of "$dialog_width" of dialog with name '"$exe_name"'"
+fi
+
+sleep 1
+
+dialog_height=`get_height_of_first_dialog $exe_name`
+
+if [ -z $dialog_height  ] 
+then 
+  echo "Error: could not find window with name "$exe_name
+  exit 1
+else
+  echo "OK: found a height of "$dialog_height" of dialog with name '"$exe_name"'"
+fi
+
+sleep 1
+
+######################
+# Closing window
+######################
+
 echo "Close the dialog using ALT-F4"
-error=`close_first_dialog $myexe`
+error=`close_first_dialog $exe_name`
 if [ ! $error -eq 0 ]
 then 
-  echo "Error: could not close dialog with name "$myexe
+  echo "Error: could not close dialog with name "$exe_name
   exit 1
 fi
 
 sleep 1
 
 echo "Check if the dialog is closed"
-id=`get_dialog_id $myexe`
+id=`get_dialog_id $exe_name`
 if [ $id ] 
 then 
   echo "Error: dialog should be closed"
   exit 1
 fi
-
-# sleep 1
-
-# echo "Starting the application again"
-# ./$myexe &
-# sleep 1
-
-# echo "Close the dialog by setting the mouse at the closing glyph and clicking"
-# set_mouse_at_close_glyph_of_first_dialog $myexe
-# sleep 1 # For suspense
-
-# Set the mouse at the closing glyph again (in case the user moved the mouse)
-# set_mouse_at_close_glyph_of_first_dialog $myexe
-# xdotool click 1
-
