@@ -1,0 +1,34 @@
+#!/usr/bin/python
+
+# The standard import stuff.
+from ldtp import *
+from ooldtp import context as locate
+from time import sleep
+
+# Here we open the app.
+launchapp('gedit')
+
+# Now we find it and make sure it is open.
+gedit_win = locate('*gedit')
+gedit_win.waittillguiexist()
+
+# Now we type into gedit.
+text_field = gedit_win.getchild('txt1')
+text_field.enterstring("G'Day mate!")
+
+# Save a picture to prove we did it.
+imagecapture('*gedit', '/tmp/foo.png')
+
+# Quit gedit.
+quit = gedit_win.getchild('mnuQuit')
+quit.selectmenuitem()
+
+# Close without saving.
+dont_save = locate('Question')
+dont_save.waittillguiexist()
+
+button = dont_save.getchild('btnClosewithoutSaving')
+button.click()
+
+# Wait until gedit is gone.
+gedit_win.waittillguinotexist()

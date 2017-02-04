@@ -6,15 +6,25 @@ For now, I only consider Qt applications under GNU/Linux, as I use 'xdotool' to 
 
 Goal is to reliably test Qt GUI applications.
 
-## Qt
+## Tools used
+
+### Qt
+
+![The Qt logo](Qt_logo_2015.png)
 
 Qt is a cross-platform C++ library to create GUIs.
 
-##  xdotool
+###  xdotool
 
 xdotool is a GNU/Linux command-line tool.
 
-##  Travis CI
+### LDTP
+
+Linux Desktop Testing Project, a GUI testing suite.
+
+###  Travis CI
+
+![The Travis CI logo](TravisCI.png)
 
 Travis CI is a continuous integration (hence the 'CI') tool.
 
@@ -40,3 +50,4 @@ In each of these folders:
 
  * The build script builds the application
  * The test scripts pass
+
