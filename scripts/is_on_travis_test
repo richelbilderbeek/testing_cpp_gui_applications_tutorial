@@ -1,0 +1,11 @@
+#!/bin/bash
+. is_on_travis
+
+on_travis=`is_on_travis`
+
+if [ $on_travis -eq 1 ] 
+then
+  echo "This script is run on a Travis CI server"
+else
+  echo "This script is run on a local computer"
+fi

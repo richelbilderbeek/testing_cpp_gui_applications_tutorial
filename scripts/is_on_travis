@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Checks if this script is run on a Travis CI server. Returns 1 if yes, 0 if not.
+
+function is_on_travis
+{
+  x=`echo $TRAVIS`
+  if [ -z $x ]
+  then
+    echo 0
+  else
+    echo 1
+  fi
+}

@@ -58,6 +58,7 @@ script:
   - ./get_x_of_first_dialog_test
   - ./get_y_of_first_dialog_test
   - ./is_dialog_present_test
+  - ./is_on_travis_test
   - ./is_leafpad_present_test
   - ./is_wmctrl_present_test
   - ./is_xdotool_present_test
