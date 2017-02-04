@@ -1,0 +1,17 @@
+#!/bin/bash
+
+#sudo apt-get install ldtp
+#sudo apt-get install ldtp-doc
+#sudo apt-get install python-ldtp
+#sudo apt-get install gedit
+
+# sudo apt-get install python-atspi
+# sudo apt-get install twisted-web
+# sudo apt-get install python-gnome
+
+
+sudo apt-get install pyatspi
+# sudo apt-get install python-atspi
+sudo apt-get install python-twisted-web
+sudo apt-get install python-wnck
+sudo apt-get install python-gnome
