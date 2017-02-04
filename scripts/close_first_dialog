@@ -13,7 +13,7 @@ function close_first_dialog
   then
     echo 1
   else
-    xdotool windowactivate $id  --sync sleep 0.1 key alt+F4
+    xdotool windowactivate $id sleep 0.1 key alt+F4
     echo 0
   fi
 }
