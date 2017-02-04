@@ -2,10 +2,10 @@
 . ../scripts/close_first_dialog
 . ../scripts/count_exes
 . ../scripts/get_dialog_id
-. ../get_height_of_first_dialog
-. ../get_width_of_first_dialog
-. ../get_x_of_first_dialog
-. ../get_y_of_first_dialog
+. ../scripts/get_height_of_first_dialog
+. ../scripts/get_width_of_first_dialog
+. ../scripts/get_x_of_first_dialog
+. ../scripts/get_y_of_first_dialog
 . ../scripts/is_xdotool_present
 . ../scripts/set_mouse_at_close_glyph_of_first_dialog
 
