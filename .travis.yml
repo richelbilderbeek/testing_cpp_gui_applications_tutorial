@@ -13,7 +13,8 @@ install:
   # cowsay
   - sudo apt-get install cowsay
   - export PATH=/usr/bin:/bin:/usr/games
-
+  # randr
+  - sudo apt-get install libxrandr-dev
 
 before_script:
   - export DISPLAY=:99.0
