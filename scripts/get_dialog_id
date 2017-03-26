@@ -1,68 +1,15 @@
 #!/bin/bash
-
-# Get the ID of the *first* window with the arguments
-# as its window title
-
-# This version cannot be used on Travis
-function get_dialog_id_impl_1
-{
-  echo `wmctrl -l | egrep "$*" | head -n 1 | cut -f 1 -d ' '`
-}
-
-# This version can be used on Travis, use the Name of a window
-# Works for mousepad on local computer:
-#   Window 0x6400001:
-#     Machine:  pc-157-104
-#     Name:  Mousepad
-#     Icon Name:  Mousepad
-#     Command:  mousepad
-#     Instance/Class:  mousepad/Mousepad
-# Works for minimal_application on local computer:
-#   Window 0x9e00001:
-#     Machine:  pc-157-104
-#     Name:  minimal_project
-#     Icon Name:  minimal_project
-#     Command:  minimal_project
-#     Instance/Class:  minimal_project/Minimal_project
-# Works for select_class on local computer:
-#   Window 0x9e00001:
-#     Machine:  pc-157-104
-#     Name:  select_class
-#     Icon Name:  select_class
-#     Command:  select_class
-#     Instance/Class:  select_class/Select_class
-# Does work for leafpad on Travis:
-#   Window 0x200001:
-#     Machine:  testing-gce-a7d3bf48-2384-4ab5-80da-c31003907c32
-#     Name:  Leafpad
-#     Icon Name:  leafpad
-#     Command:  leafpad
-#     Instance/Class:  leafpad/Leafpad
-# Does not work for minimal_application on Travis:
-#   Window 0x800002:
-#     Machine:  testing-gce-a7d3bf48-2384-4ab5-80da-c31003907c32
-#     Name:  Dialog
-#     Command:  ./minimal_project
-#     Instance/Class:  minimal_project/Minimal_project
-# Does not work for select_class on Travis:
-#   Window 0xa00002:
-#     Machine:  testing-gce-a7d3bf48-2384-4ab5-80da-c31003907c32
-#     Name:  Select a class
-#     Command:  ./select_class
-#     Instance/Class:  select_class/Select_class
-function get_dialog_id_impl_2
-{
-  echo `xlsclients -l | egrep -i --before-context=2 "Name:.*$*" | egrep "Window" | cut -f 1 -d ":" | cut -f 2 -d " " | head -n 1`
-}
-
-# This version can be used on Travis, use the Command of a window:
-# Use before-context=4, because leafpad does have a line called 'Icon Name'
-function get_dialog_id_impl_3
-{
-  echo `xlsclients -l | egrep -i --before-context=4 "Command:.*$*" | egrep "Window" | cut -f 1 -d ":" | cut -f 2 -d " " | head -n 1`
-}
+. get_dialog_id_by_name
+. get_dialog_id_by_title
 
 function get_dialog_id
 {
-  echo `get_dialog_id_impl_3 $*`
+  id_by_name=`get_dialog_id_by_name .*$*`
+  if [ $id_by_name ] 
+  then 
+    echo $id_by_name
+  else
+    id_by_title=`get_dialog_id_by_title .*$*`
+    echo $id_by_title
+  fi 
 }

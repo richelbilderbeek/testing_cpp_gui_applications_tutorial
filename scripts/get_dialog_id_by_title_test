@@ -1,0 +1,41 @@
+#!/bin/bash
+. close_first_dialog
+. get_dialog_id_by_title
+. is_leafpad_present
+
+is_present=`is_leafpad_present`
+if [ $is_present -eq 1 ] 
+then
+  echo "OK: leafpad is present"
+else
+  echo "leafpad is absent, type 'sudo apt-get install leafpad' to install it"
+  exit 1
+fi
+
+must_be_nothing=`get_dialog_id_by_title "absent dialog"`
+if [ $must_be_nothing ] 
+then 
+  echo "Error: should not detect an absent dialog"
+  exit 1
+fi
+
+leafpad &
+sleep 1
+must_be_something=`get_dialog_id_by_title "Leafpad"`
+
+if [ $must_be_something ] 
+then 
+  echo "OK: detected leafpad window with id "$must_be_something
+else
+  echo "Error: should detect empty leafpad window"
+  exit 1
+fi
+
+must_be_zero=`close_first_dialog "Leafpad"`
+if [ $must_be_zero -eq 0 ] 
+then 
+  echo "OK: closed leafpad window"
+else
+  echo "Error: could not close leafpad window"
+  exit 1
+fi
