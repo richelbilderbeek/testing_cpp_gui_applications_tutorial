@@ -1,8 +1,8 @@
 #!/bin/bash
 
+
 # Get the ID of the *first* window with the arguments
 # as the window class name
-
 # This version can be used on Travis, use the Name of a window
 # Works for mousepad on local computer:
 #   Window 0x6400001:
