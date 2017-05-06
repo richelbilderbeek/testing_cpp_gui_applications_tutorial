@@ -1,6 +1,9 @@
 # testing_cpp_gui_applications_tutorial
 
-[![Build Status](https://travis-ci.org/richelbilderbeek/testing_cpp_gui_applications_tutorial.svg?branch=master)](https://travis-ci.org/richelbilderbeek/testing_cpp_gui_applications_tutorial)
+Branch|[![Travis CI logo](TravisCI.png)](https://travis-ci.org)
+---|---
+master|[![Build Status](https://travis-ci.org/richelbilderbeek/testing_cpp_gui_applications_tutorial.svg?branch=master)](https://travis-ci.org/richelbilderbeek/testing_cpp_gui_applications_tutorial)
+develop|[![Build Status](https://travis-ci.org/richelbilderbeek/testing_cpp_gui_applications_tutorial.svg?branch=develop)](https://travis-ci.org/richelbilderbeek/)
 
 Tutorial about testing C++ GUI applications.
 
