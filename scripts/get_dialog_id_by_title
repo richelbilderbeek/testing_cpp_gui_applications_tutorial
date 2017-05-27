@@ -1,9 +1,17 @@
 #!/bin/bash
 
+. is_wmctrl_present
+
 # Get the ID of the *first* window with the arguments
 # as the window title bar text
 # Cannot be used on Travis
 function get_dialog_id_by_title
 {
-  echo `wmctrl -l | egrep "$*" | head -n 1 | cut -f 1 -d ' '`
+  is_present=`is_wmctrl_present`
+  if [ $is_present -eq 1 ] 
+  then
+    echo `wmctrl -l | egrep "$*" | head -n 1 | cut -f 1 -d ' '`
+  else
+    (>&2 echo "wmctrl is absent, type 'sudo apt-get install wmctrl' to install it")
+  fi
 }
